@@ -1,0 +1,50 @@
+.movie-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #1a1a2e;
+    border-radius: 10px;
+    padding: 0.8rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.movie-container:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.movie-container img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+.movie-container h2 {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.movie-container p {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: 0.9rem;
+}
+.movie-container button{
+    margin-top: 0.8rem;
+    padding: 0.5rem 1rem;
+    background: #e50914;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+
+
+}
+.movie-container button:hover{
+    background: #ff1f2e;
+}
