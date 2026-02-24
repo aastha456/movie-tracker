@@ -1,13 +1,16 @@
 import type { Movie } from "./types";
 import "./MovieCard.css"
+import { useMovieContext } from "../context/MovieContextProvider";
 
 interface MovieProps {
   movie: Movie;
-  onAddFavourites?: (movie: Movie) => void;
-  onAddWatched?: (movie: Movie) => void;
 }
 
-function MovieCard ({movie, onAddFavourites, onAddWatched}: MovieProps) {
+function MovieCard ({movie}: MovieProps) {
+    const { favourites, watched, toggleFavourites, toggleWatched } = useMovieContext();
+    const isFavourite = favourites.some(fav => fav.id === movie.id);
+    const isWatched = watched.some(m => m.id === movie.id);
+
     return (
         <div className="movie-container">
             {movie.poster_path && (
@@ -16,12 +19,14 @@ function MovieCard ({movie, onAddFavourites, onAddWatched}: MovieProps) {
                 <h2>{movie.title}</h2>
                 <p>{movie.release_date}</p>
             
-            {onAddFavourites &&(
-            <button onClick={() => onAddFavourites(movie)}>Add to favourites</button>)}
+            <button onClick={() => toggleFavourites(movie)}>
+                {isFavourite ? "Remove from Favourites" : "Add to Favourites"}
 
-            {onAddWatched && (
-            <button onClick={() => onAddWatched(movie)}>Mark as Watched</button>
-             )}
+            </button>
+            <button onClick={() => toggleWatched(movie)}>
+                {isWatched ? "Mark as Unwatched" : "Mark as Watched"}
+            </button>
+            
 
         </div>
     )
