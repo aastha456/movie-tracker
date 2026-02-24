@@ -1,4 +1,4 @@
-import './App.css'
+// import './App.css'
 import Header from './components/Header'
 import FavouriteMovie from './pages/FavouriteMovie'
 import Home from './pages/Home'
