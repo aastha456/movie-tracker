@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import "./Home.css"
 import MovieCard from '../components/MovieCard';
-import {useMovieContext} from '../context/MovieContextProvider'
+
 
 interface Movies {
     id: number;
@@ -12,7 +12,7 @@ interface Movies {
 
 function Home(){
   const [movies, setMovies] = useState<Movies[]>([]);
-  const { addFavourites, addWatched } = useMovieContext();
+  // const { addFavourites, addWatched } = useMovieContext();
 
   const [loading, setLoading] = useState(false);
   const APIKey = import.meta.env.VITE_API_KEY;
@@ -47,7 +47,7 @@ function Home(){
         <h1>Popular Movies</h1>
         <div className='movie-grid'>
             {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} onAddFavourites={addFavourites} onAddWatched={addWatched}/>
+            <MovieCard key={movie.id} movie={movie}/>
         ))}
         </div>
     </div>
